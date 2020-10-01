@@ -1,7 +1,11 @@
 (function () {
     'use strict';
     angular.module('FoodItemCounterApp', [])
-        .controller('FoodItemCounterCtrl', function ($scope) {
+        .controller('FoodItemCounterCtrl',['$scope',
+                                        FoodItemCounterCtrl]);
+
+        FoodItemCounterCtrl.$inject = ['$scope']
+        function FoodItemCounterCtrl($scope) {
             $scope.foodItems = "";
             $scope.foodItemsCount = 0;
             $scope.message = "Check If Too Much";
@@ -25,5 +29,5 @@
                 }
 
             }
-        });
+        }
 })();
