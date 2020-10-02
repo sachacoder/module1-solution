@@ -4,16 +4,18 @@
         .controller('FoodItemCounterCtrl',['$scope',
                                         FoodItemCounterCtrl]);
 
-        FoodItemCounterCtrl.$inject = ['$scope']
+        FoodItemCounterCtrl.$inject = ['$scope'];
         function FoodItemCounterCtrl($scope) {
             $scope.foodItems = "";
-            $scope.foodItemsCount = 0;
             $scope.message = "Check If Too Much";
+
+            var foodItemsCount = 0;
+            
             $scope.calculateFoodItems = function () {
-                $scope.foodItemsCount = calculateItems($scope.foodItems);
+                foodItemsCount = _calculateItems($scope.foodItems);
             };
 
-            function calculateItems(_foodItems) {
+            function _calculateItems(_foodItems) {
                 if(_foodItems ==="") {
                     $scope.message = "Please enter data first";
                 }else {
